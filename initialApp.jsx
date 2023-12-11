@@ -15,6 +15,9 @@ export default function App() {
     });
     setNewItem("");
   }
+function Todo(items){
+
+}
   return (
     <>
       <form onSubmit={handleSubmit} className="new-item-form">
