@@ -35,7 +35,7 @@ export default function App() {
           return (
             <li key={todo.id}>
               <label>
-                <input type="checkbox" checked={todo.completed} /> {todo.title}
+                <input type="checkbox" onClick=toggleTodo(Todo, completed) checked={todo.completed} /> {todo.title}
               </label>
               <button className="btn btn-danger">Delete</button>
             </li>
