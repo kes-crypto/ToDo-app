@@ -15,9 +15,16 @@ export default function App() {
     });
     setNewItem("");
   }
-function Todo(items){
-
-}
+  function toggleTodo(id, completed) {
+    setTodos((currentTodos) => {
+      return currentTodos.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, completed };
+        }
+        return todo;
+      });
+    });
+  }
   return (
     <>
       <form onSubmit={handleSubmit} className="new-item-form">
@@ -38,7 +45,12 @@ function Todo(items){
           return (
             <li key={todo.id}>
               <label>
-                <input type="checkbox" onClick=toggleTodo(Todo, completed) checked={todo.completed} /> {todo.title}
+                <input
+                  type="checkbox"
+                  checked={todo.completed}
+                  onChange={(e) => toggleTodo(todo.id, target.completed)}
+                />{" "}
+                {todo.title}
               </label>
               <button className="btn btn-danger">Delete</button>
             </li>
@@ -48,4 +60,3 @@ function Todo(items){
     </>
   );
 }
-
